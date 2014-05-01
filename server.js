@@ -1,11 +1,13 @@
 var express = require('express'),
 	passport = require('passport'),
 	http = require('http'),
+	mongoose = require('mongoose'),
 	config = require('./lib/config/config'),
 	app = express();
 
 app.config = config;
 
+require('./lib/config/database')(app, mongoose)
 require('./lib/config/passport')(app, passport);
 require('./lib/config/express')(app, express, passport);
 
