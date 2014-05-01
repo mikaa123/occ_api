@@ -1,0 +1,22 @@
+{
+  "name": "express-passport-letsrock",
+  "version": "0.1.0",
+  "description": "A template for buildint express and passport applications",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Sokol",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "passport-twitter": "~1.0.2",
+    "passport": "~0.2.0",
+    "express": "~4.1.1",
+    "method-override": "~1.0.0",
+    "multer": "0.0.5",
+    "body-parser": "~1.0.2",
+    "cookie-parser": "~1.0.1",
+    "express-session": "~1.0.4",
+    "connect-mongo": "~0.4.0"
+  }
+}
