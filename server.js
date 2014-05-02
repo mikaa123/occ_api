@@ -10,6 +10,7 @@ var express = require('express'),
 app.config = config;
 
 require('./lib/config/database')(app, mongoose);
+require('./lib/models');
 require('./lib/config/passport')(app, passport);
 require('./lib/config/express')(app, express, passport);
 
