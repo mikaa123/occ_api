@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
 	passport = require('passport'),
 	http = require('http'),
@@ -7,7 +9,7 @@ var express = require('express'),
 
 app.config = config;
 
-require('./lib/config/database')(app, mongoose)
+require('./lib/config/database')(app, mongoose);
 require('./lib/config/passport')(app, passport);
 require('./lib/config/express')(app, express, passport);
 
@@ -18,7 +20,7 @@ var server = http.createServer(app)
       return console.trace(err);
     }
 
-    console.log("\n✔ Express server listening on port %d in %s mode", app.get('port'), app.get('env'));
+    console.log('\n✔ Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 
   });
 
