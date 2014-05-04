@@ -3,8 +3,7 @@
 ## Environment variables
 
 Create a .env and set
-TWITTER_KEY=yourkey
-TWITTER_SECRET=yourkey
+TOKEN_SECRET=yourSecret
 
 ## Start dev server
 
