@@ -4,7 +4,7 @@
   "description": "A template for buildint express and passport applications",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*"
   },
   "author": "Michael Sokol",
   "license": "BSD-2-Clause",
@@ -23,5 +23,9 @@
     "hbs": "~2.6.0",
     "passport-http-bearer": "~1.0.1",
     "jwt-simple": "~0.2.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "supertest": "~0.12.0"
   }
 }

@@ -5,6 +5,10 @@
 Create a .env and set
 TOKEN_SECRET=yourSecret
 
+## Run tests
+
+`npm test`
+
 ## Start dev server
 
  foreman start -e Procfile_dev -e .env
