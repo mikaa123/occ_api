@@ -9,9 +9,17 @@ TOKEN_SECRET=yourSecret
 
 `npm test`
 
-## Start dev server
+## Start development server
 
- foreman start -e Procfile_dev -e .env
+The server relies on environment variable for some configuration.
+In order to use local env variables, we rely on `foreman`. It loads a `.env`
+file (that isn't added to version control.) To use it in development mode, run:
+
+`foreman start -e Procfile_dev`
+
+In production,
+
+`foreman start`
 
 # Heavily inspired by
 
