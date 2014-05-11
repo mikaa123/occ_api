@@ -1,3 +1,7 @@
+# Sane express server for API
+
+An API express server with token authentication. Built to scale in complexity.
+
 # Configuration steps
 
 ## Environment variables
@@ -21,7 +25,7 @@ In production,
 
 `foreman start`
 
-# Heavily inspired by
+# Inspired by
 
 https://github.com/aredo/express4-bootstrap-starter
 
