@@ -1,6 +1,6 @@
 {
   "name": "express-passport-letsrock",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A template for buildint express and passport applications",
   "main": "server.js",
   "scripts": {
