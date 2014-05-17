@@ -16,6 +16,25 @@ The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-htt
 In addition, an `errors` property MAY be sent back in the response.
 
 
+# Group Root
+
+## API Root [/]
+API entry point.
+
+This resource offers and initial set of affordances.
+
+### Retrieve the Entry Point [GET]
+
++ Response 200 (application/hal+json)
+	{
+		"_links": {
+			"self": { "href": "/" },
+			"users": { "href:" "/users" },
+			"authorization": { "href": "/authorization" }
+		}
+	}
+
+
 
 # Group User and Token
 User creation and authentication.
@@ -24,25 +43,18 @@ User creation and authentication.
 The Authorization resource represents an authorization granted to the user.
 
 + Model (application/json)
-
-	+ Body
-
-		{
-			"token": "abc"
-		}
-
+	{
+		"token": "abc"
+	}
 
 ### Retrieve Authorization [GET]
 Returns a bearer token for the requesting user.
 
 + Request
-
-	+ Body
-
-		{
-			"username": "foo",
-			"password": "pwd"
-		}
+	{
+		"username": "foo",
+		"password": "pwd"
+	}
 
 + Response 200
 	[Authorization][]
@@ -54,13 +66,10 @@ The User resource.
 	+ id (string) ... ID of the User in the form of a hash
 
 + Model (application/hal+json)
-
-	+ Body
-
-		{
-			"username": "foobar",
-			"email": "some@email.com"
-		}
+	{
+		"username": "foobar",
+		"email": "some@email.com"
+	}
 
 ## Users [/users]
 A Collection of users.
@@ -76,5 +85,4 @@ To create a new User, provide a JSON hash with a *username*, *email* and *passwo
 	}
 
 + Response 201
-
 	[Authorization][]
