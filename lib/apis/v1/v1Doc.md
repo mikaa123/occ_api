@@ -30,34 +30,34 @@ This resource offers and initial set of affordances.
 		"_links": {
 			"self": { "href": "/" },
 			"users": { "href:" "/users" },
-			"authorization": { "href": "/authorization" }
+			"tokens": { "href": "/tokens" }
 		}
 	}
 
 
 
-# Group User and Token
+# User and Authentication
 User creation and authentication.
 
-## Authorization [/authorization]
-The Authorization resource represents an authorization granted to the user.
+## Tokens [/tokens]
+The Token resource represents an authorization granted to the user. You can only
+create a token by using **Basic Authentication**.
 
 + Model (application/json)
 	{
 		"token": "abc"
 	}
 
-### Retrieve Authorization [GET]
-Returns a bearer token for the requesting user.
+### Create a token [POST]
+Returns a bearer token for the requesting user. The token's lifespan is
+30 minutes.
 
 + Request
-	{
-		"username": "foo",
-		"password": "pwd"
-	}
+	+ Headers
+		 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 + Response 200
-	[Authorization][]
+	[Token][]
 
 ## User [/user/{id}]
 The User resource.
@@ -85,4 +85,4 @@ To create a new User, provide a JSON hash with a *username*, *email* and *passwo
 	}
 
 + Response 201
-	[Authorization][]
+	[User][]
