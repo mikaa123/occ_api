@@ -16,6 +16,7 @@ The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-htt
 In addition, an `errors` property MAY be sent back in the response.
 
 
+
 # Group Root
 
 ## API Root [/]
@@ -36,19 +37,19 @@ This resource offers and initial set of affordances.
 
 
 
-# User and Authentication
+# Group User and Authentication
 User creation and authentication.
 
-## Tokens [/tokens]
-The Token resource represents an authorization granted to the user. You can only
-create a token by using **Basic Authentication**.
+## Authorization [/authorization]
+The Authorization resource represents an authorization granted to the user.
+In order to get an authorization, you need to use **basic authentication**.
 
 + Model (application/json)
 	{
 		"token": "abc"
 	}
 
-### Create a token [POST]
+### Create a token [GET]
 Returns a bearer token for the requesting user. The token's lifespan is
 30 minutes.
 
@@ -57,7 +58,7 @@ Returns a bearer token for the requesting user. The token's lifespan is
 		 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 + Response 200
-	[Token][]
+	[Authorization][]
 
 ## User [/user/{id}]
 The User resource.
