@@ -29,3 +29,13 @@ In production,
 
 https://github.com/aredo/express4-bootstrap-starter
 
+===============
+
+var userResource = makeResource('/user');
+var usersResource = makeResource('/users');
+
+usersResource
+	.post(function (req, res) {
+		// Create a user
+		res.send(201, userResource(user, 'hal'));
+	})
