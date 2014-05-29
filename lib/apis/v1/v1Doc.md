@@ -30,7 +30,7 @@ This resource offers and initial set of affordances.
 	{
 		"_links": {
 			"self": { "href": "/" },
-			"users": { "href:" "/users" },
+			"users": { "href": "/users" },
 			"tokens": { "href": "/tokens" }
 		}
 	}
