@@ -3,12 +3,10 @@
   "version": "0.2.0",
   "description": "A template for buildint express and passport applications",
   "main": "server.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "Michael Sokol",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "passport-twitter": "~1.0.2",
     "passport": "~0.2.0",
     "express": "~4.1.1",
     "method-override": "~1.0.0",
@@ -25,8 +23,8 @@
     "validators": "~0.3.0",
     "validator": "~3.12.0",
     "aglio": "~1.14.0",
-    "passport-http": "~0.2.2"
+    "passport-http": "~0.2.2",
+    "catnap": "~0.1.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

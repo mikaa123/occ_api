@@ -75,6 +75,13 @@ The User resource.
 		"email": "some@email.com"
 	}
 
+### Retrieve a single User [GET]
+
++ Response 200
+    
+	[User][]
+
+
 ## Users [/users]
 A Collection of users.
 
