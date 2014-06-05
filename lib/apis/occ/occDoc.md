@@ -189,7 +189,7 @@ is made of embedded **talks**.
 	[Issue][]
 
 
-## Issues [/issues]
+## Issues Collection [/issues]
 The Issues Collection Resource. It has a `count` attribute and embeds **issue** resources.
 
 + Model (application/hal+json)
@@ -216,7 +216,7 @@ The Issues Collection Resource. It has a `count` attribute and embeds **issue** 
 
 + Response 200
 
-	[Issues][]
+	[Issues Collection][]
 
 ### Create an Issue [POST]
 To create a new issue, provide a JSON hash with a `title`. Once the `issue` is created, you can
@@ -233,7 +233,7 @@ _PUT_ new talks in it.
 	[Issue][]
 
 
-## Talk [/issues/{issueId}/{talkId}]
+## Talk [/issues/{issueId}/talks/{talkId}]
 A Talk resource.
 
 + Parameters
@@ -259,8 +259,15 @@ A Talk resource.
 
 	[Talk][]
 
-### Create a new talk [PUT]
-Add a new talk to the issue.
+
+## Talks Collection [/issues/{issueId}/talks]
+Collection of talks in the given issue.
+
++ Parameters
+	+ issueId (string) ... ID of the Issue in the form of a hash
+
+### Create a new talk [POST]
+Creates a new talk in the `issueId`'s issue.
 
 + Request (application/json)
 
