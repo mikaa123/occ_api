@@ -1,0 +1,122 @@
+FORMAT: 1A
+
+# Oodrive Computer Club API
+This is the description of a nifty API.
+
+# Group Issues and Talks
+
+## Issue [/issues/{id}]
+The Issue resource. It represent an **Oodrive Computer Club** session. In this model, an issue
+is made of embedded **talks**.
+
++ Parameters
+    + id (required, string, `5396fe86c362ffb556d23c3b`) ... ID of the Issue in the form of a hash
+
++ Model (application/hal+json)
+
+    {
+      "title": "OCC #4",
+      "_embedded": {
+        "talks": []
+      },
+      "_links": {
+        "talks": {
+          "href": "/issues/5396fe86c362ffb556d23c3b/talks"
+        }
+      }
+    }
+
+### Retrieve a sigle Issue [GET]
+
++ Response 200
+
+    [Issue][]
+
+## Issues Collection [/issues]
+The Issues Collection Resource. It has a `count` attribute and embeds **issue** resources.
+
++ Model (application/hal+json)
+
+    + Body
+
+        {
+          "count": 1,
+          "_embedded": {
+            "issues": [
+              {
+                "title": "OCC #4",
+                "_links": {
+                  "self": {
+                    "href": "/issue/5396fe86c362ffb556d23c3b"
+                  }
+                }
+              }
+            ]
+          }
+        }
+
+### List all issues [GET]
+
++ Response 200
+
+    [Issues Collection][]
+
+
+### Create an Issue [POST]
+To create a new issue, provide a JSON hash with a `title`. Once the `issue` is created, you can
+_PUT_ new talks in it.
+
++ Request (application/json)
+
+    {
+      "title": "OCC #5"
+    }
+
++ Response 201
+
+    [Issue][]
+
+## Talk [/issues/{issueId}/talks/{talkId}]
+A Talk resource.
+
++ Parameters
+    + issueId (required, string, `5396fe86c362ffb556d23c3b`) ... ID of the Issue in the form of a hash
+    + talkId (required, string, `5396fab1aefa6e35542cc68e`) ... ID of the talk in the form of a hash
+
++ Model (application/hal+json)
+
+    {
+      "speaker": "mika",
+      "summary": "FP programming made simple",
+      "_links": {
+        "self": {
+          "href": "/issues/536b85de9c0096f904853ace/536647f4ef1413d40c5acc73"
+        }
+      }
+    }
+
+### View a single talk [GET]
+
++ Response 200
+
+    [Talk][]
+
+## Talks Collection [/issues/{issueId}/talks]
+Collection of talks in the given issue.
+
++ Parameters
+    + issueId (required, string, `5396fe86c362ffb556d23c3b`) ... ID of the Issue in the form of a hash
+
+### Create a new talk [POST]
+Creates a new talk in the `issueId`'s issue.
+
++ Request (application/json)
+
+    {
+      "speaker": "Alfred",
+      "summary": "A very interesting talk about coffee making."
+    }
+
++ Response 201
+
+    [Talk][]

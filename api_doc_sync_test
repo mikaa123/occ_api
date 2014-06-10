@@ -1,0 +1,10 @@
+#!/bin/sh
+./dbreset.js
+
+TOKEN_SECRET=test node server.js &
+sleep 3
+PID=$!
+dredd testsapi.apibp http://localhost:3000/api
+RESULT=$?
+kill -9 $PID
+exit $RESULT

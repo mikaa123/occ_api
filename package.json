@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "A template for buildint express and passport applications",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+  	"doc_sync_test": "./api_doc_sync_test"
+  },
   "author": "Michael Sokol",
   "license": "BSD-2-Clause",
   "dependencies": {
@@ -18,19 +20,14 @@
     "jwt-simple": "~0.2.0",
     "method-override": "~1.0.0",
     "mongoose": "~3.8.8",
-    "mongoose-timestamp": "^0.2.1",
+    "mongoose-timestamp": "~0.2.1",
     "multer": "0.0.5",
     "passport": "~0.2.0",
     "passport-http": "~0.2.2",
-<<<<<<< HEAD
-    "catnap": "~0.1.3",
-    "mongoose-timestamp": "~0.2.1"
-=======
     "passport-http-bearer": "~1.0.1",
     "passport-local": "~1.0.0",
     "validator": "~3.12.0",
     "validators": "~0.3.0"
->>>>>>> e010568189d9d6f48daac49688869a16e31d8e2f
   },
   "devDependencies": {}
 }
