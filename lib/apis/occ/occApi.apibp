@@ -1,13 +1,173 @@
 FORMAT: 1A
 
 # Oodrive Computer Club API
-This is the description of a nifty API.
+Welcome to the Oodrive Computer Club API, dear computer enthusiast. I hope you find this page to your liking.
+It documents the differents **resources** available to build really awesome apps for the OCC.
+
+This API has been designed to be [hypermedia and RESTful](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). To do that, it uses a hypermedia-enabled
+media type, [hal+json](http://stateless.co/hal_specification.html).
+
+So while you build your apps, try not to rely on URI, but on affordances instead. By doing so, I can change
+the URIs without breaking your application. Decoupling FTW!
+
+If you have any question, shout out at occ@librelist.com, or come and see me. ;-)
+
+## Authentication
+**OCC API** uses bearer JWT token authentication. All authenticated request must
+provide a token in their payload.
+
+## Media Types
+Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
+
+## Error States
+The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.
+
+In addition, an `errors` property MAY be sent back in the response.
+
+# Group Root
+
+## OCC API [/]
+API entry point.
+
+This resource offers and initial set of affordances.
+
+### Affordances
++ `show` (`self`) ... API entry point
++ `users` ... Lists all users
++ `authorization` ... Get a token
++ `issues` ... List all issues
+
+### Retrieve the Entry Point [GET]
+
++ Response 200 (application/hal+json)
+
+    {
+      "_links": {
+        "self": { "href": "/" },
+        "users": { "href": "/users" },
+        "authorization": { "href": "/authorization" },
+        "issues": { "href": "/issues" }
+      }
+    }
+
+# Group User and Authentication
+
+## Authorization [/authorization]
+The Authorization resource represents an authorization granted to the user.
+In order to get an authorization, you need to use **basic authentication**.
+
+### Attributes
++ `token` ... JWT bearer token
+
++ Model (application/hal+json)
+
+    {
+      "token": "abc"
+    }
+
+### Create a token [GET]
+Returns a bearer token for the requesting user. The token's lifespan is
+30 minutes.
+
++ Request
+    + Headers
+
+        Authorization: Basic dXNlcmZvbzpiYWFhYXI=
+
++ Response 200
+    [Authorization][]
+
+## User [/users/{id}]
+The User resource.
+
+### Attributes
++ `username` ... The name of the user
++ `email` ... The user's email
+
++ Parameters
+    + id (required, string, `5395c5e6a8cac63681117607`) ... ID of the User in the form of a hash
+
++ Model (application/hal+json)
+
+    {
+      "username": "foobar",
+      "email": "some@email.com"
+    }
+
+### Retrieve a single User [GET]
+
++ Response 200
+
+    [User][]
+
+## Users [/users]
+A Collection of users.
+
+The Users resource has a `count` attribute that shows the number of users. In
+addition, it **embeds** user resources. The embedded User resources are partial
+representations. In order to get the full representation of an embedded resource,
+follow the `self` link of the User you want.
+
+### Attributes
++ `count` ... Total count of all users
+
++ Model (application/hal+json)
+
+    + Body
+
+        {
+          "count": 1,
+          "_embedded": {
+            "users": [
+              {
+                "username": "foo",
+                "_links": {
+                  "self": {
+                    "href": "/users/5395c5e6a8cac63681117607"
+                  }
+                }
+              },
+              {
+                "username": "bar",
+                "_links": {
+                  "self": {
+                    "href": "/users/5395c5e6a8cac63681117607"
+                  }
+                }
+              }
+            ]
+          }
+        }
+
+### List all users [GET]
+
++ Response 200
+
+    [Users][]
+
+### Create a User [POST]
+To create a new User, provide a JSON hash with a *username*, *email* and *password*.
+
++ Request (application/json)
+
+    {
+        "username": "theusername",
+        "email": "some@email.com",
+        "password": "somepwd"
+    }
+
++ Response 201
+
+    [User][]
 
 # Group Issues and Talks
 
 ## Issue [/issues/{id}]
 The Issue resource. It represent an **Oodrive Computer Club** session. In this model, an issue
 is made of embedded **talks**.
+
+### Attributes
++ `title` ... The issue's title
 
 + Parameters
     + id (required, string, `5396fe86c362ffb556d23c3b`) ... ID of the Issue in the form of a hash
@@ -34,6 +194,9 @@ is made of embedded **talks**.
 
 ## Issues Collection [/issues]
 The Issues Collection Resource. It has a `count` attribute and embeds **issue** resources.
+
+### Attributes
++ `count` ... Total count of all issues
 
 + Model (application/hal+json)
 
@@ -78,6 +241,10 @@ _PUT_ new talks in it.
 
 ## Talk [/issues/{issueId}/talks/{talkId}]
 A Talk resource.
+
+### Attributes
++ `speaker` ... The name of the speaker
++ `summary` ... A description of what they talked about
 
 + Parameters
     + issueId (required, string, `5396fe86c362ffb556d23c3b`) ... ID of the Issue in the form of a hash
