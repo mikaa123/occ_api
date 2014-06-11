@@ -4,14 +4,13 @@
   "description": "A template for buildint express and passport applications",
   "main": "server.js",
   "scripts": {
-  	"doc_sync_test": "./api_doc_sync_test"
+    "doc_sync_test": "./api_doc_sync_test"
   },
   "author": "Michael Sokol",
   "license": "BSD-2-Clause",
   "dependencies": {
     "aglio": "~1.14.0",
     "body-parser": "~1.0.2",
-    "catnap": "~0.1.3",
     "connect-mongo": "~0.4.0",
     "cookie-parser": "~1.0.1",
     "express": "~4.1.1",
@@ -27,7 +26,8 @@
     "passport-http-bearer": "~1.0.1",
     "passport-local": "~1.0.0",
     "validator": "~3.12.0",
-    "validators": "~0.3.0"
+    "validators": "~0.3.0",
+    "catnap": "~1.0.0"
   },
   "devDependencies": {}
 }
