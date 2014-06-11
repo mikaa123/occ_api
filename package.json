@@ -29,5 +29,7 @@
     "validators": "~0.3.0",
     "catnap": "~1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mongo_fixtures": "0.0.2"
+  }
 }
