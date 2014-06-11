@@ -12,6 +12,9 @@ the URIs without breaking your application. Decoupling FTW!
 
 If you have any question, shout out at occ@librelist.com, or come and see me. ;-)
 
+[![Build Status](https://travis-ci.org/mikaa123/occ_api.svg?branch=master)](https://travis-ci.org/mikaa123/occ_api)
+This documentation is directly tested against the API.
+
 ## Authentication
 **OCC API** uses bearer JWT token authentication. All authenticated request must
 provide a token in their payload.
