@@ -30,6 +30,7 @@
     "catnap": "~1.0.0"
   },
   "devDependencies": {
-    "mongo_fixtures": "0.0.2"
+    "mongo_fixtures": "0.0.2",
+    "dredd": "~0.3.2"
   }
 }
