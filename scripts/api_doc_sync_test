@@ -1,6 +1,6 @@
 #!/bin/sh
+npm install -g dredd@0.3.0
 ./scripts/dbreset.js
-
 TOKEN_SECRET=test node server.js &
 sleep 3
 PID=$!
